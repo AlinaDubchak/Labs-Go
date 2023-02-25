@@ -8,6 +8,8 @@ import (
 	"time"
 )
 
+const PORT, PATH string = ":8795", "/time"
+
 func main() {
 	http.HandleFunc("/time", showTime)
 	log.Fatal(http.ListenAndServe(":8795", nil))
