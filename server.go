@@ -14,10 +14,7 @@ func main() {
 	http.HandleFunc(PATH, showTime)
 	err := http.ListenAndServe(PORT, nil)
 	http.HandleFunc("/time", showTime)
-	err := http.ListenAndServe(":8795", nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
+	log.Fatal(http.ListenAndServe(":8795", nil))
 }
 
 func showTime(write http.ResponseWriter, request *http.Request) {
