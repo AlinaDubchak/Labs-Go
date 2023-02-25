@@ -12,10 +12,7 @@ const PORT, PATH string = ":8795", "/time"
 
 func main() {
 	http.HandleFunc(PATH, showTime)
-	err := http.ListenAndServe(PORT, nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
+	log.Fatal(http.ListenAndServe(PORT, nil))
 }
 
 func showTime(write http.ResponseWriter, request *http.Request) {
